@@ -1,103 +1,95 @@
-import Image from "next/image";
+'use client'
+import { WordRotate } from "@/components/ui/word-rotate";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { useState } from 'react';
+import { HowItWorks } from "@/components/HowItWorks";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [form, setForm] = useState({ name: '', email: '', company: '', type: '', message: '' });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <>
+      <main className="font-sans bg-GradBlue text-gray-800">
+        {/* Hero Section */}
+        <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-GradBlue to-GradSkyBlue text-white text-center px-6">
+          <h1 className="text-7xl md:text-8xl font-bold mb-4 wrap-normal">Turn Unused Software Licenses Into</h1>
+          <WordRotate className='text-7xl md:text-8xl font-bold mb-4' words={["CASH!!", "💸💸💸"]} />
+          <p className="text-lg md:text-2xl font-semibold mb-6 max-w-2xl">
+            <span className="italic text-shadow-2xs">SoftSell</span> helps you resell your old software licenses safely, quickly, and profitably.
+          </p>
+          <div>
+            <a href="#contact" className="px-6 py-3 text-lg">
+            <InteractiveHoverButton className="font-bold">Sell My Licenses</InteractiveHoverButton>
+            </a>
+          </div>
+        </section>
+
+        <HowItWorks />
+        
+
+        {/* Why Choose Us */}
+        <section className="bg-GradWhite py-20 px-6">
+          <h2 className="text-5xl font-bold text-center mb-10">Why Choose Us</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {["Instant Valuation", "Trusted by 500+ Clients", "Transparent Pricing", "Secure Payouts"].map((benefit, i) => (
+              <div key={i} className="p-4 bg-gray-100 rounded shadow-2xl text-center font-medium">
+                ✅ {benefit}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-20 px-6 text-center bg-GradWhite">
+          <h2 className="text-5xl font-bold mb-10">What Our Customers Say</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded shadow-2xl">
+              <p>“Fastest resale experience I’ve had. Super easy and transparent.”</p>
+              <p className="mt-2 font-semibold">Jane D., IT Manager, TechCorp</p>
+            </div>
+            <div className="bg-white p-6 rounded shadow-2xl">
+              <p>“Got a better price than I expected. Highly recommend SoftSell.”</p>
+              <p className="mt-2 font-semibold">Rahul M., Freelancer</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form */}
+        <section id="contact" className="py-20 px-6 bg-gradient-to-b from-GradWhite to-GradSkyBlue">
+          <h2 className="text-5xl font-bold text-center mb-10">Get in Touch</h2>
+          <form className="max-w-2xl mx-auto grid grid-cols-1 gap-3 bg-white px-5 py-5 rounded-2xl">
+
+            <label className="block font-medium">Enter your name:</label>
+            <input type="text" placeholder="Name" className="border p-3 rounded" required />
+
+            <label className="block font-medium">Enter your email:</label>
+            <input type="email" placeholder="Email" className="border p-3 rounded" required />
+
+            <label className="block font-medium">Enter the license company:</label>
+            <input type="text" placeholder="Company" className="border p-3 rounded" />
+
+            <label className="block font-medium">Enter license type:</label>
+            <select className="border p-3 rounded" required>
+              <option value="">Select License Type</option>
+              <option value="Windows">Windows</option>
+              <option value="Adobe">Adobe</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label className="block font-medium">Upload License (PDF, TXT, PNG)</label>
+            <input
+            type="file"
+            accept=".pdf,.txt,.png"
+            className="border p-3 rounded w-full"
+            required
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+
+            <label className="block font-medium">Enter any message</label>
+            <textarea placeholder="Message" className="border p-3 rounded" rows={4}></textarea>
+            <button type="submit" className="bg-blue-600 text-white py-3 px-6 rounded font-medium hover:bg-blue-700">Get My Quote</button>
+          </form>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
