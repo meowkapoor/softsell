@@ -25,7 +25,7 @@ const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React
     const ref3 = useRef<HTMLDivElement>(null);
   
     return (
-      <section className="py-20 bg-gradient-to-b from-GradSkyBlue to-GradWhite text-center">
+      <section id='how' className="py-20 bg-gradient-to-b from-GradSkyBlue to-GradWhite text-center">
         <h2 className="text-5xl font-bold mb-30">How It Works</h2>
   
         <div className="relative flex w-full max-w-4xl mx-auto justify-between px-6" ref={containerRef}>

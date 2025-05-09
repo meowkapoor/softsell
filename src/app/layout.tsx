@@ -14,7 +14,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-GradBlue">
-        <header><img src="/img/logo.png" alt="logo" className="h-40 w-auto inline-block align-middle" /></header>
         {children}
       </body>
     </html>
