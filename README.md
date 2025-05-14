@@ -34,7 +34,7 @@ Welcome to the official repository for **SoftSell**, a modern, responsive market
 * **Gradient Backgrounds** and clean color palette
 * **Interactive Button Effects** using custom hover animations
 
-| ![Home](screenshots/hero-page.png) | ![Product](screenshots/how-it-works.png) |
+![Home](screenshots/hero-page.png) ![Product](screenshots/how-it-works.png)
 
 ---
 
